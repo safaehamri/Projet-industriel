@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <link rel="stylesheet" href="static\css\style.css">
+  <style>
+    .centered-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+     .download-btn,
+    .back-link {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.6rem;
+      text-decoration: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover,
+    .back-link:hover {
+      background-color: #0b6eb2;
+    }
+    
+    @media only screen and (max-width: 768px) {
+      .back-link {
+        font-size: 1.4rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="profile">
+      <div class="profile_container">
+        <div class="profile_profileImg">
+          <img src="/static/img/test.png" alt="EXPERTSKILLS">
+        </div>
+        <div>
+          <h1 class="profile_name">
+            <span class="profile_name_lastName"> {{ data.name }} </span>
+          </h1>
+          
+          <div class="contact_info">
+            <p class="description">
+              Phone: {{ data.phone_number }}
+            </p>
+            <p class="description">
+              Email: {{ data.email_address }}
+            </p>
+            <p class="description">
+              Rabat,  Maroc
+            </p>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <div class="skills">
+        <h3 class="title">FORMATION ASSURÉE </h3>
+          <p class="myStyle"> {{ data.education }}</p>
+
+      </div>
+      <div class="ref">
+        <h3 class="title">ENSEIGNEMENT</h3>
+        <p class="myStyle"> {{ data.education }}</p>
+      </div>
+
+      <div class="edu">
+        <h3 class="title">Experience</h3>
+        <p class="myStyle">{{ data.experience }}</p>
+      </div>
+
+    <div class="group-1">
+      <div class="skills">
+        <h3 class="title">Skills</h3>
+        <p class="myStyle">{{ data.skills }}</p>
+      </div>
+      
+      <div class="certification">
+        <h3 class="title">Certifications</h3>
+        <p class="myStyle">{{ data.certification }}</p>
+      </div>
+    </div>
+    <div class="group-2">
+      <div class="exp">
+        <h3 class="title">Education</h3>
+        <p class="myStyle">{{ data.education }}</p>
+      </div>
+      <div class="awards">
+        <h3 class="title">Languages</h3>
+        <p class="myStyle">{{ data.language }}</p>
+      </div>
+    </div>
+  <div class="centered-container"></div>
+    <a href="/" class="back-link">Back</a>
+
+  <form method="POST" action="{{ url_for('download_pdf') }}">
+      <!-- Add hidden inputs for each piece of data you want to include in the PDF -->
+      <input type="hidden" name="name" value="{{ data.name }}">
+      <input type="hidden" name="phone_number" value="{{ data.phone_number }}">
+      <input type="hidden" name="email_address" value="{{ data.email_address }}">
+      <input type="hidden" name="education" value="{{ data.education }}">
+      <input type="hidden" name="skills" value="{{  data.skills }}">
+      <input type="hidden" name="experience" value="{{ data.experience }}">
+      <input type="hidden" name="language" value="{{ data.language }}">
+      <input type="hidden" name="certification" value="{{ data.certification }}">
+      <!-- Add a submit button to download the PDF -->
+      <button type="submit" class="download-btn">Download PDF</button>
+  </form>
+  </div>
+</div>
+  <script>
+    feather.replace()
+  </script>
+
+</body>
+
+</html>
+
+
+
+
