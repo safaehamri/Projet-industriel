@@ -1,0 +1,6 @@
+{
+    "JWT_KEY" : "3QbZxtLU5EdM$e!9Uewu",
+    "BACKEND_PORT" : 4000,
+    "MONGO_URI" : "mongodb+srv://safaehamri82:UevKunSxstC52C4i@cluster0.balntet.mongodb.net/?retryWrites=true&w=majority&wtimeoutMS=5000",
+    "JWT_TOKEN_EXPIRATION_TIME": "1000h"
+}
